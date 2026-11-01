@@ -76,7 +76,7 @@ jobs:
 ''')
  old=O/'.github/workflows/phase1.yml'
  if old.exists():old.unlink()
- files=sorted(p for p in O.rglob('*') if p.is_file() and '.git' not in p.parts and p.name!='SHA256SUMS' and 'build' not in p.relative_to(O).parts)
+ files=sorted(p for p in O.rglob('*') if p.is_file() and '.git' not in p.parts and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.zip') and p.name!='SHA256SUMS' and 'build' not in p.relative_to(O).parts)
  (O/'SHA256SUMS').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(O)}\n' for p in files))
  print(O,'prepared',len(files),'files; exactly one final PPTX and one final report')
 if __name__=='__main__':main()
