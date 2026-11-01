@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+.env
+Phase1/build/
+*.vvp
+*.vcd
+
+node_modules/
+Phase1/.chart-data-*/
+Phase2/build/
+Phase2/.chart-data-*/
+.chart-data-*/
